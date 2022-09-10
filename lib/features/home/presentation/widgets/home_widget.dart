@@ -1,17 +1,14 @@
 import 'dart:ui';
 
-import 'package:algoriza_weather/core/model/Location.dart';
 import 'package:algoriza_weather/core/util/bloc/app/cubit.dart';
 import 'package:algoriza_weather/core/util/bloc/app/states.dart';
+import 'package:algoriza_weather/features/drawer/main_drawer_builder.dart';
 import 'package:algoriza_weather/features/home/presentation/widgets/cards/current_card_widget.dart';
 import 'package:algoriza_weather/features/home/presentation/widgets/cards/sun_card.dart';
 import 'package:algoriza_weather/features/home/presentation/widgets/cards/week_card/week_card.dart';
-import 'package:algoriza_weather/features/widgets/drawer_widget.dart';
-import 'package:algoriza_weather/features/widgets/text_widget.dart';
 import 'package:algoriza_weather/features/widgets/today_weather_card.dart';
 import 'package:algoriza_weather/features/home/presentation/widgets/appbar/weather_appbar.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -76,7 +73,7 @@ class _HomeWidgetState extends State<HomeWidget> {
     return BlocBuilder<AppBloc, AppState>(
       builder: (context, state) {
         return Scaffold(
-          drawer: const DrawerWidget(),
+          drawer: const BuildMenu(),
           body: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
