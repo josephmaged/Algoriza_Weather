@@ -4,6 +4,7 @@ import 'package:algoriza_weather/app/helpers/cash_helper.dart';
 import 'package:algoriza_weather/core/util/bloc/app/cubit.dart';
 import 'package:algoriza_weather/core/util/network/dio_helper.dart';
 import 'package:algoriza_weather/features/home/presentation/pages/home_page.dart';
+import 'package:algoriza_weather/features/on_boarding/presentation/pages/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const HomePage(),
+        home: const OnBoardingPage(),
       ),
     );
   }

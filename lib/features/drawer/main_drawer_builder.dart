@@ -55,7 +55,7 @@ class BuildMenu extends StatelessWidget {
                           cubit.locations.length,
                           (index) => WeatherTag(
                             text: cubit.locations[index],
-                            temp: cubit.temps[index].split('.').first + "°",
+                            temp: cubit.temps[index],
                           ),
                         ),
                 ),

@@ -64,7 +64,6 @@ class AppBloc extends Cubit<AppState> {
     ).then((value) async {
       searchedForecast = ForecastWeather.fromJson(value.data);
       name = searchedForecast!.location.name;
-      print(searchedForecast!.current.temp_c);
       emit(AppSucceedGetSearchData());
     });
   }
@@ -80,6 +79,13 @@ class AppBloc extends Cubit<AppState> {
     CashHelper.setData(key: "temps", value: temps);
 
     emit(AppWeatherCityChanged());
+  }
+
+  RemoveLocations(city, temp){
+    CashHelper.getData("locations");
+    CashHelper.getData("temps");
+
+    emit(AppWeatherCityRemove());
   }
 
   void setSunsetSunrise() async {

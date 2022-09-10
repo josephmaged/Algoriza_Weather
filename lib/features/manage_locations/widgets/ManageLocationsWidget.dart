@@ -77,6 +77,7 @@ Widget getCountry(String item) => BlocConsumer<AppBloc, AppState>(
               cubit.getSearch();
               cubit.nameCityController.clear();
               cubit.AddLocations(cubit.searchedForecast!.location.name, cubit.searchedForecast!.current.temp_c);
+              print(cubit.searchedForecast!.current.temp_c);
               Navigator.pop(context);
             },
             child: Row(

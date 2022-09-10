@@ -13,3 +13,6 @@ class AppSucceedGetSearchData extends AppState {}
 class AppGetSearchData extends AppState {}
 
 class AppWeatherCityChanged extends AppState {}
+
+class AppWeatherCityRemove extends AppState {}
+
