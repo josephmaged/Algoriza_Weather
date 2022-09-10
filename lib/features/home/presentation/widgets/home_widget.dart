@@ -1,7 +1,16 @@
 import 'dart:ui';
 
+import 'package:algoriza_weather/core/model/Location.dart';
 import 'package:algoriza_weather/core/util/bloc/app/cubit.dart';
 import 'package:algoriza_weather/core/util/bloc/app/states.dart';
+import 'package:algoriza_weather/features/home/presentation/widgets/cards/current_card_widget.dart';
+import 'package:algoriza_weather/features/home/presentation/widgets/cards/sun_card.dart';
+import 'package:algoriza_weather/features/home/presentation/widgets/cards/week_card/week_card.dart';
+import 'package:algoriza_weather/features/widgets/drawer_widget.dart';
+import 'package:algoriza_weather/features/widgets/text_widget.dart';
+import 'package:algoriza_weather/features/widgets/today_weather_card.dart';
+import 'package:algoriza_weather/features/home/presentation/widgets/appbar/weather_appbar.dart';
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,114 +24,86 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
-  ScrollController? _scrollController;
 
-  bool lastStatus = true;
+  late ScrollController _scrollController;
+  bool _appBarCollapsed = false;
 
-  _scrollListener() {
-    if (isShrink != lastStatus) {
-      setState(() {
-        lastStatus = isShrink;
-      });
-    }
-  }
-
-  bool get isShrink {
-    return _scrollController!.hasClients && _scrollController!.offset > (200 - kToolbarHeight);
+  bool isShrink() {
+    return _scrollController.hasClients && _scrollController.offset > (230 - kToolbarHeight);
   }
 
   @override
   void initState() {
-    _scrollController = ScrollController();
-    _scrollController!.addListener(_scrollListener);
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    _scrollController!.removeListener(_scrollListener);
-    super.dispose();
+    _scrollController = ScrollController()
+      ..addListener(() {
+        if (isShrink() && !_appBarCollapsed) {
+          setState(() => _appBarCollapsed = true);
+        } else if (!isShrink() && _appBarCollapsed) {
+          setState(() => _appBarCollapsed = false);
+        }
+      });
   }
 
   @override
   Widget build(BuildContext context) {
-    DateTime dateTime = DateTime.now();
+    // convert dateTime.now to local then split
+    var dateZone = DateTime.now().toLocal();
+    var dateFormat = DateFormat("H").format(dateZone.toLocal());
+    int dateSplit = int.parse(dateFormat);
+
     var cubit = AppBloc.get(context);
+    cubit.setSunsetSunrise();
+
+    List<Widget> widgetsList = [
+      Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            SunCard(),
+            SizedBox(height: 10),
+            CurrentCardWidget(),
+            SizedBox(height: 10),
+            TodayWeatherCard(),
+            SizedBox(height: 10),
+            WeekCard(),
+          ],
+        ),
+      )
+    ];
+
     return BlocBuilder<AppBloc, AppState>(
       builder: (context, state) {
         return Scaffold(
+          drawer: const DrawerWidget(),
           body: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(
-                    dateTime.hour >= 5 && dateTime.hour < 18 ? 'assets/images/day2.png' : 'assets/images/night2.png',
+                    dateSplit >= cubit.sunrise && dateSplit < cubit.sunset
+                        ? 'assets/images/day2.png'
+                        : 'assets/images/night2.png',
                   ),
                   fit: BoxFit.fill),
             ),
             child: ClipRRect(
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
-                child: CustomScrollView(
-                  controller: _scrollController,
-                  slivers: [
-                    SliverAppBar(
-                      backgroundColor: isShrink ? Colors.black54 : Colors.transparent,
-                      pinned: true,
-                      expandedHeight: 300,
-                      collapsedHeight: 80,
-                      forceElevated: false,
-                      flexibleSpace: FlexibleSpaceBar(
-                        centerTitle: true,
-                        title: RichText(
-                          textAlign: TextAlign.center,
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                  text: toBeginningOfSentenceCase(cubit.initialValue), style: const TextStyle(fontSize: 34)),
-                              const TextSpan(text: "\n"),
-                              TextSpan(
-                                text: "33",
-                                style: isShrink ? const TextStyle(fontSize: 20) : const TextStyle(fontSize: 50),
-                              ),
-                              TextSpan(text: isShrink ? " | " : "\n"),
-                              const TextSpan(
-                                text: "Mostly Clear",
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              TextSpan(text: isShrink ? null : "\n"),
-                              TextSpan(
-                                text: isShrink ? null : "H:24 L:18",
-                                style: const TextStyle(fontSize: 18),
-                              ),
-                            ],
-                          ),
-                        ),
+                child: ConditionalBuilder(
+                  condition: cubit.forecastWeather != null,
+                  fallback: (context) => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  builder: (context) => CustomScrollView(
+                    controller: _scrollController,
+                    slivers: [
+                      WeatherAppBar(isShrink: _appBarCollapsed, cubit: cubit),
+                      SliverList(
+                        delegate: SliverChildListDelegate(widgetsList),
                       ),
-                      leading: IconButton(
-                        onPressed: () {
-                          cubit.getForecastWeather();
-                        },
-                        icon: const Icon(Icons.menu),
-                      ),
-                    ),
-                    SliverToBoxAdapter(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height,
-                        decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.6),
-                          borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(25),
-                            topLeft: Radius.circular(25),
-                          ),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-                          child: Text('test'),
-                        ),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

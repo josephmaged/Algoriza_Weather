@@ -15,6 +15,7 @@ class MyHttpOverrides extends HttpOverrides{
 }
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await DioHelper.init();
   HttpOverrides.global = new MyHttpOverrides();
   runApp(const MyApp());
