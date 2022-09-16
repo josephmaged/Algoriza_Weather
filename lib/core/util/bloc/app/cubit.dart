@@ -1,12 +1,12 @@
 import 'dart:core';
 
-import 'package:algoriza_weather/app/helpers/cash_helper.dart';
-import 'package:algoriza_weather/core/model/ForecastWeather.dart';
-import 'package:algoriza_weather/core/model/Forecastday.dart';
-import 'package:algoriza_weather/core/model/Hour.dart';
-import 'package:algoriza_weather/core/model/Location.dart';
-import 'package:algoriza_weather/core/util/bloc/app/states.dart';
-import 'package:algoriza_weather/core/util/network/dio_helper.dart';
+import 'package:my_weather/app/helpers/cash_helper.dart';
+import 'package:my_weather/core/model/ForecastWeather.dart';
+import 'package:my_weather/core/model/Forecastday.dart';
+import 'package:my_weather/core/model/Hour.dart';
+import 'package:my_weather/core/model/Location.dart';
+import 'package:my_weather/core/util/bloc/app/states.dart';
+import 'package:my_weather/core/util/network/dio_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';

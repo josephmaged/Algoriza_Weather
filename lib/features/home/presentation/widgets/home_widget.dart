@@ -1,13 +1,13 @@
 import 'dart:ui';
 
-import 'package:algoriza_weather/core/util/bloc/app/cubit.dart';
-import 'package:algoriza_weather/core/util/bloc/app/states.dart';
-import 'package:algoriza_weather/features/drawer/main_drawer_builder.dart';
-import 'package:algoriza_weather/features/home/presentation/widgets/cards/current_card_widget.dart';
-import 'package:algoriza_weather/features/home/presentation/widgets/cards/sun_card.dart';
-import 'package:algoriza_weather/features/home/presentation/widgets/cards/week_card/week_card.dart';
-import 'package:algoriza_weather/features/widgets/today_weather_card.dart';
-import 'package:algoriza_weather/features/home/presentation/widgets/appbar/weather_appbar.dart';
+import 'package:my_weather/core/util/bloc/app/cubit.dart';
+import 'package:my_weather/core/util/bloc/app/states.dart';
+import 'package:my_weather/features/drawer/main_drawer_builder.dart';
+import 'package:my_weather/features/home/presentation/widgets/cards/current_card_widget.dart';
+import 'package:my_weather/features/home/presentation/widgets/cards/sun_card.dart';
+import 'package:my_weather/features/home/presentation/widgets/cards/week_card/week_card.dart';
+import 'package:my_weather/features/widgets/today_weather_card.dart';
+import 'package:my_weather/features/home/presentation/widgets/appbar/weather_appbar.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -50,7 +50,6 @@ class _HomeWidgetState extends State<HomeWidget> {
     int dateSplit = int.parse(dateFormat);
 
     var cubit = AppBloc.get(context);
-    cubit.setSunsetSunrise();
 
     List<Widget> widgetsList = [
       Padding(

@@ -1,6 +1,6 @@
-import 'package:algoriza_weather/config/const/font_manager.dart';
-import 'package:algoriza_weather/config/const/styles_manager.dart';
-import 'package:algoriza_weather/config/const/values_manager.dart';
+import 'package:my_weather/config/const/font_manager.dart';
+import 'package:my_weather/config/const/styles_manager.dart';
+import 'package:my_weather/config/const/values_manager.dart';
 import 'package:flutter/material.dart';
 class DrawerTag extends StatelessWidget {
   final IconData iconData;

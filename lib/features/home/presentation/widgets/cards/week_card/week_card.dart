@@ -1,7 +1,7 @@
-import 'package:algoriza_weather/core/model/Forecastday.dart';
-import 'package:algoriza_weather/core/util/bloc/app/cubit.dart';
-import 'package:algoriza_weather/features/home/presentation/widgets/cards/week_card/week_card_item.dart';
-import 'package:algoriza_weather/features/widgets/text_widget.dart';
+import 'package:my_weather/core/model/Forecastday.dart';
+import 'package:my_weather/core/util/bloc/app/cubit.dart';
+import 'package:my_weather/features/home/presentation/widgets/cards/week_card/week_card_item.dart';
+import 'package:my_weather/features/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

@@ -1,5 +1,5 @@
-import 'package:algoriza_weather/core/util/bloc/app/cubit.dart';
-import 'package:algoriza_weather/features/home/presentation/widgets/appbar/main_flex_widget.dart';
+import 'package:my_weather/core/util/bloc/app/cubit.dart';
+import 'package:my_weather/features/home/presentation/widgets/appbar/main_flex_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

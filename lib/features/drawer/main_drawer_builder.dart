@@ -1,10 +1,10 @@
-import 'package:algoriza_weather/app/helpers/cash_helper.dart';
-import 'package:algoriza_weather/config/const/styles_manager.dart';
-import 'package:algoriza_weather/core/util/bloc/app/cubit.dart';
-import 'package:algoriza_weather/core/util/bloc/app/states.dart';
-import 'package:algoriza_weather/features/drawer/drawer_tag.dart';
-import 'package:algoriza_weather/features/drawer/weather_tag.dart';
-import 'package:algoriza_weather/features/manage_locations/pages/manage_locations.dart';
+import 'package:my_weather/app/helpers/cash_helper.dart';
+import 'package:my_weather/config/const/styles_manager.dart';
+import 'package:my_weather/core/util/bloc/app/cubit.dart';
+import 'package:my_weather/core/util/bloc/app/states.dart';
+import 'package:my_weather/features/drawer/drawer_tag.dart';
+import 'package:my_weather/features/drawer/weather_tag.dart';
+import 'package:my_weather/features/manage_locations/pages/manage_locations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dotted_divider.dart';

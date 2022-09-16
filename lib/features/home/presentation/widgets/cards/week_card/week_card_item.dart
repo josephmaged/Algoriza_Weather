@@ -1,4 +1,4 @@
-import 'package:algoriza_weather/core/model/Forecastday.dart';
+import 'package:my_weather/core/model/Forecastday.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

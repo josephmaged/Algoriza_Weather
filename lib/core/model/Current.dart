@@ -1,5 +1,5 @@
-import 'package:algoriza_weather/core/model/AirQuality.dart';
-import 'package:algoriza_weather/core/model/Condition.dart';
+import 'package:my_weather/core/model/AirQuality.dart';
+import 'package:my_weather/core/model/Condition.dart';
 
 class Current {
   Current(

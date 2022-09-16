@@ -1,5 +1,5 @@
-import 'package:algoriza_weather/core/model/Hour.dart';
-import 'package:algoriza_weather/features/widgets/image_widget.dart';
+import 'package:my_weather/core/model/Hour.dart';
+import 'package:my_weather/features/widgets/image_widget.dart';
 import 'package:flutter/material.dart';
 
 class TodayWeatherItem extends StatelessWidget {

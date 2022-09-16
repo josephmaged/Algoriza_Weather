@@ -1,4 +1,4 @@
-package cf.josephmaged.algoriza_weather
+package cf.josephmaged.my_weather
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,4 +1,4 @@
-import 'package:algoriza_weather/features/manage_locations/widgets/ManageLocationsWidget.dart';
+import 'package:my_weather/features/manage_locations/widgets/ManageLocationsWidget.dart';
 import 'package:flutter/material.dart';
 
 class ManageLocations extends StatelessWidget {

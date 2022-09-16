@@ -1,4 +1,4 @@
-import 'package:algoriza_weather/core/util/bloc/app/cubit.dart';
+import 'package:my_weather/core/util/bloc/app/cubit.dart';
 import 'package:flutter/material.dart';
 
 class FeelsLikeText extends StatelessWidget {
