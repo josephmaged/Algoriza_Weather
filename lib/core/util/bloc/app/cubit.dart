@@ -82,8 +82,12 @@ class AppBloc extends Cubit<AppState> {
   }
 
   RemoveLocations(city, temp){
-    CashHelper.getData("locations");
-    CashHelper.getData("temps");
+
+    locations.removeWhere((element) => element == city);
+    temps.removeWhere((element) => element == temp);
+
+    CashHelper.setData(key: "locations", value: locations);
+    CashHelper.setData(key: "temps", value: temps);
 
     emit(AppWeatherCityRemove());
   }
