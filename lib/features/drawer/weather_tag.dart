@@ -5,6 +5,7 @@ import 'package:algoriza_weather/config/const/values_manager.dart';
 import 'package:algoriza_weather/core/util/bloc/app/cubit.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class WeatherTag extends StatelessWidget {
   final IconData? iconData;
@@ -18,24 +19,34 @@ class WeatherTag extends StatelessWidget {
 
     var snackBar = SnackBar(content: Text('${text} deleted successfully') );
     AppBloc cubit = AppBloc.get(context);
-    return GestureDetector(
-      onHorizontalDragEnd: (DragEndDetails drag) {
-        cubit.locations.removeWhere((element) => element == text);
-        cubit.temps.removeWhere((element) => element == temp);
+    return Slidable(
+      endActionPane:  ActionPane(
+        motion: BehindMotion(),
 
-        CashHelper.setData(key: "locations", value: cubit.locations);
-        CashHelper.setData(key: "temps", value: cubit.temps);
+        children: [
+          SlidableAction(
+            onPressed: (BuildContext context){
+            cubit.locations.removeWhere((element) => element == text);
+            cubit.temps.removeWhere((element) => element == temp);
 
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-      },
+            CashHelper.setData(key: "locations", value: cubit.locations);
+            CashHelper.setData(key: "temps", value: cubit.temps);
+
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          },
+            borderRadius: BorderRadius.circular(10),
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.white,
+            icon: Icons.delete,
+            label: 'Delete',
+          )
+        ],
+      ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: AppPadding.p16),
+        padding: const EdgeInsets.all(AppPadding.p16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(
-              width: 50,
-            ),
             if (iconData != null)
               Icon(
                 iconData,
