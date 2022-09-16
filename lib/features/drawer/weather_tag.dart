@@ -19,9 +19,12 @@ class WeatherTag extends StatelessWidget {
     var snackBar = SnackBar(content: Text('${text} deleted successfully') );
     AppBloc cubit = AppBloc.get(context);
     return GestureDetector(
-      onDoubleTap: () {
+      onHorizontalDragEnd: (DragEndDetails drag) {
         cubit.locations.removeWhere((element) => element == text);
         cubit.temps.removeWhere((element) => element == temp);
+
+        CashHelper.setData(key: "locations", value: cubit.locations);
+        CashHelper.setData(key: "temps", value: cubit.temps);
 
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       },

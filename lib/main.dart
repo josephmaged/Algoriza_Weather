@@ -7,6 +7,7 @@ import 'package:algoriza_weather/features/home/presentation/pages/home_page.dart
 import 'package:algoriza_weather/features/on_boarding/presentation/pages/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyHttpOverrides extends HttpOverrides {
   @override
@@ -16,6 +17,8 @@ class MyHttpOverrides extends HttpOverrides {
   }
 }
 
+bool? initScreen;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DioHelper.init();
@@ -23,6 +26,10 @@ void main() async {
   final List<String> mylocations = CashHelper.getData("locations") ?? const [];
   final List<String> myTemps = CashHelper.getData("temps") ?? const [];
   HttpOverrides.global = new MyHttpOverrides();
+
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  initScreen = await prefs.getBool("showHome");
+
   runApp(MyApp(locations: mylocations, temps: myTemps,));
 }
 
@@ -42,7 +49,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const OnBoardingPage(),
+        home: initScreen == true ? const HomePage() : const OnBoardingPage(),
       ),
     );
   }

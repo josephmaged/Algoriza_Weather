@@ -26,12 +26,12 @@ class BuildMenu extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(25),
               child: Column(children: [
-                const Align(
+                /*const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(
                       Icons.settings_outlined,
                       color: Colors.white,
-                    )),
+                    )),*/
                 const DrawerTag(
                   iconData: Icons.star,
                   text: "Favourite Locations",
