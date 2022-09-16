@@ -1,7 +1,7 @@
-import 'package:algoriza_weather/core/util/bloc/app/cubit.dart';
-import 'package:algoriza_weather/features/home/presentation/widgets/appbar/location_widget.dart';
-import 'package:algoriza_weather/features/home/presentation/widgets/appbar/body_widget.dart';
-import 'package:algoriza_weather/features/home/presentation/widgets/appbar/current_temperature_widget.dart';
+import 'package:my_weather/core/util/bloc/app/cubit.dart';
+import 'package:my_weather/features/home/presentation/widgets/appbar/location_widget.dart';
+import 'package:my_weather/features/home/presentation/widgets/appbar/body_widget.dart';
+import 'package:my_weather/features/home/presentation/widgets/appbar/current_temperature_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

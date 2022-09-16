@@ -1,4 +1,4 @@
-import 'package:algoriza_weather/features/on_boarding/presentation/widgets/onboarding_widget.dart';
+import 'package:my_weather/features/on_boarding/presentation/widgets/onboarding_widget.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingPage extends StatelessWidget {

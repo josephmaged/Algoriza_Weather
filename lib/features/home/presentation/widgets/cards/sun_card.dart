@@ -1,7 +1,7 @@
-import 'package:algoriza_weather/config/const/strings.dart';
-import 'package:algoriza_weather/core/util/bloc/app/cubit.dart';
-import 'package:algoriza_weather/core/util/bloc/app/states.dart';
-import 'package:algoriza_weather/features/widgets/text_widget.dart';
+import 'package:my_weather/config/const/strings.dart';
+import 'package:my_weather/core/util/bloc/app/cubit.dart';
+import 'package:my_weather/core/util/bloc/app/states.dart';
+import 'package:my_weather/features/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

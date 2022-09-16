@@ -1,9 +1,9 @@
-import 'package:algoriza_weather/core/model/ForecastWeather.dart';
-import 'package:algoriza_weather/core/model/Hour.dart';
-import 'package:algoriza_weather/core/util/bloc/app/cubit.dart';
-import 'package:algoriza_weather/core/util/bloc/app/states.dart';
-import 'package:algoriza_weather/features/widgets/text_widget.dart';
-import 'package:algoriza_weather/features/widgets/today_weather_item.dart';
+import 'package:my_weather/core/model/ForecastWeather.dart';
+import 'package:my_weather/core/model/Hour.dart';
+import 'package:my_weather/core/util/bloc/app/cubit.dart';
+import 'package:my_weather/core/util/bloc/app/states.dart';
+import 'package:my_weather/features/widgets/text_widget.dart';
+import 'package:my_weather/features/widgets/today_weather_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';

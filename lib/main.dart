@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:algoriza_weather/app/helpers/cash_helper.dart';
-import 'package:algoriza_weather/core/util/bloc/app/cubit.dart';
-import 'package:algoriza_weather/core/util/network/dio_helper.dart';
-import 'package:algoriza_weather/features/home/presentation/pages/home_page.dart';
-import 'package:algoriza_weather/features/on_boarding/presentation/pages/onboarding_page.dart';
+import 'package:my_weather/app/helpers/cash_helper.dart';
+import 'package:my_weather/core/util/bloc/app/cubit.dart';
+import 'package:my_weather/core/util/network/dio_helper.dart';
+import 'package:my_weather/features/home/presentation/pages/home_page.dart';
+import 'package:my_weather/features/on_boarding/presentation/pages/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AppBloc(locations: locations!,temps: temps!)..getForecastWeather(),
+      create: (context) => AppBloc(locations: locations!,temps: temps!)..getForecastWeather()..setSunsetSunrise(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Weather',

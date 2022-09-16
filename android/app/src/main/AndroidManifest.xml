@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cf.josephmaged.algoriza_weather">
+    package="cf.josephmaged.my_weather">
    <application
-        android:label="algoriza_weather"
+        android:label="My Weather"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"

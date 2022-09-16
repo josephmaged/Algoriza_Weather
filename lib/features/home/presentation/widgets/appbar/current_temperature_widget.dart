@@ -1,5 +1,5 @@
-import 'package:algoriza_weather/core/util/bloc/app/cubit.dart';
-import 'package:algoriza_weather/features/home/presentation/widgets/appbar/high_low_text.dart';
+import 'package:my_weather/core/util/bloc/app/cubit.dart';
+import 'package:my_weather/features/home/presentation/widgets/appbar/high_low_text.dart';
 import 'package:flutter/material.dart';
 
 class CurrentTemperatureWidget extends StatelessWidget {

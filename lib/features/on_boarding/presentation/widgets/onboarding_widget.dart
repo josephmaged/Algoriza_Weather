@@ -1,6 +1,6 @@
-import 'package:algoriza_weather/config/const/strings.dart';
-import 'package:algoriza_weather/features/home/presentation/pages/home_page.dart';
-import 'package:algoriza_weather/features/on_boarding/presentation/widgets/onBoarding.dart';
+import 'package:my_weather/config/const/strings.dart';
+import 'package:my_weather/features/home/presentation/pages/home_page.dart';
+import 'package:my_weather/features/on_boarding/presentation/widgets/onBoarding.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

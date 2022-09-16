@@ -1,4 +1,4 @@
-import 'package:algoriza_weather/core/model/Hour.dart';
+import 'package:my_weather/core/model/Hour.dart';
 import 'package:dio/dio.dart';
 
 class DioHelper {
